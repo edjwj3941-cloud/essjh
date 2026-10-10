@@ -1,0 +1,267 @@
+# ===========================================================================
+#  The Last Spark - config.yml
+# ===========================================================================
+#  Every relic below can be restyled. For each one you can change:
+#    name              Display name. Supports & color codes.
+#    material          Base item. Pick any item; it decides the vanilla look and base stats.
+#    lore              Tooltip lines. Keep them in sync with what the ability really does.
+#    enchantments      "name:level,name:level" using vanilla enchantment keys. Levels may exceed vanilla maximums.
+#    item-model        Resource-pack model, e.g. "lastspark:eclipse_crown" (needs a pack that defines it). Leave "" for none.
+#    custom-model-data Number for packs that use custom_model_data (0 = off).
+#
+#  Changes only affect relics forged AFTER a /spark reload. To restyle an existing relic:
+#  /spark reset <relic>, then /spark give <relic>.
+#  Do not rename the keys under "items:" - they are the relic ids.
+# ===========================================================================
+
+# How often (in ticks, 20 = 1s) the plugin sweeps online inventories, open containers and dropped
+# items for duplicate or counterfeit relics.
+scan-interval-ticks: 100
+
+spark:
+  radius: 6.0            # how close someone must be to be consumed
+  target-players: true
+  target-mobs: true
+  prefer-players: true   # if both a player and a mob are close, take the player
+  broadcast: true        # announce every consumption to the whole server
+
+abilities:
+  crown-dodge-chance: 0.30     # Eclipse Crown projectile dodge (0.0 - 1.0)
+  lifebloom-heal: 10.0         # health restored by the Lifebloom Charm (2 = 1 heart)
+  waystone-channel-seconds: 3  # stand-still time before the Waystone Shard teleports you
+
+# Cooldowns in seconds
+cooldowns:
+  spark: 30
+  waystone: 30
+  lifebloom: 90
+  hook: 3
+  phoenix: 300
+  voidstep: 10
+  thunder_smash: 3
+  maul_smash: 3
+  maul_leap: 12
+  axe_cleave: 10
+  dagger_step: 12
+  skyfall: 6
+
+items:
+  # ------------------------------------------------------------------ ARMOR
+  eclipse_crown:
+    name: "&5&lEclipse Crown"
+    material: NETHERITE_HELMET
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "protection:6,respiration:3,aqua_affinity:1,mending:1"
+    lore:
+      - "&7Forged beneath a total eclipse."
+      - ""
+      - "&5Passive &8» &7Night Vision and Water Breathing"
+      - "&5Passive &8» &730% chance to dodge any projectile"
+      - ""
+      - "&8Relic - Armor"
+
+  phoenix_plate:
+    name: "&6&lPhoenix Plate"
+    material: NETHERITE_CHESTPLATE
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "protection:6,thorns:3,mending:1"
+    lore:
+      - "&7The ash remembers how to burn."
+      - ""
+      - "&6Passive &8» &7Fire Resistance"
+      - "&6Rebirth &8» &7A killing blow is undone once per 5 minutes:"
+      - "&7  you rise at half health in a burst of flame"
+      - ""
+      - "&8Relic - Armor"
+
+  tempest_leggings:
+    name: "&b&lTempest Leggings"
+    material: NETHERITE_LEGGINGS
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "protection:6,swift_sneak:3,mending:1"
+    lore:
+      - "&7Stitched from the eye of a storm."
+      - ""
+      - "&bPassive &8» &7Speed II and Jump Boost II"
+      - "&bPassive &8» &7Immune to lightning"
+      - ""
+      - "&8Relic - Armor"
+
+  voidstep_boots:
+    name: "&8&lVoidstep Boots"
+    material: NETHERITE_BOOTS
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "protection:6,feather_falling:6,depth_strider:3,soul_speed:3,mending:1"
+    lore:
+      - "&7They have walked where nothing stands."
+      - ""
+      - "&8Passive &8» &7No fall damage"
+      - "&8Passive &8» &7Fall into the void and they pull you back"
+      - "&7  to the last solid ground (10s cooldown)"
+      - ""
+      - "&8Relic - Armor"
+
+  # ------------------------------------------------------------------ WEAPONS
+  thunderclap_mace:
+    name: "&e&lThunderclap Mace"
+    material: MACE
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "density:6,breach:4,fire_aspect:2,looting:3"
+    lore:
+      - "&7The sky itself answers the swing."
+      - ""
+      - "&eSmash &8» &7A falling hit calls down lightning, deals"
+      - "&7  bonus damage and blasts everything around the target"
+      - ""
+      - "&8Relic - Weapon (Mace)"
+
+  wind_warden_maul:
+    name: "&b&lWind Warden's Maul"
+    material: MACE
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "wind_burst:3,density:5,looting:3"
+    lore:
+      - "&7Carved from a gale that never ended."
+      - ""
+      - "&bRight-click &8» &7Gale Leap: launch yourself skyward"
+      - "&7  (no fall damage for 8s, so you can land your smash)"
+      - "&bSmash &8» &7A falling hit sends nearby enemies flying"
+      - ""
+      - "&8Relic - Weapon (Mace)"
+
+  soulreaver:
+    name: "&3&lSoulreaver"
+    material: NETHERITE_SWORD
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "sharpness:7,sweeping_edge:3,looting:4,fire_aspect:2"
+    lore:
+      - "&7It does not cut flesh. It cuts what lives inside."
+      - ""
+      - "&3Passive &8» &7Lifesteal: heal for a quarter of damage dealt"
+      - "&3Passive &8» &7Killing a foe grants Absorption"
+      - ""
+      - "&8Relic - Weapon (Sword)"
+
+  executioner_axe:
+    name: "&4&lExecutioner's Axe"
+    material: NETHERITE_AXE
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "sharpness:7,efficiency:5,looting:3"
+    lore:
+      - "&7One swing. One verdict."
+      - ""
+      - "&4Passive &8» &7Hits on foes below 35% health deal 75% more damage"
+      - "&4Right-click &8» &7Cleave: a spinning strike that hurts and"
+      - "&7  hurls back everything around you"
+      - ""
+      - "&8Relic - Weapon (Axe)"
+
+  skyfall_bow:
+    name: "&f&lSkyfall Bow"
+    material: BOW
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "power:7,punch:2,flame:1,infinity:1"
+    lore:
+      - "&7Aim at the ground. Hit the heavens."
+      - ""
+      - "&fPassive &8» &7A fully drawn arrow that lands calls down"
+      - "&7  a ring of arrows from above (6s cooldown)"
+      - ""
+      - "&8Relic - Weapon (Bow)"
+
+  shadowfang_dagger:
+    name: "&8&lShadowfang Dagger"
+    material: DIAMOND_SWORD
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "sharpness:6,sweeping_edge:2,looting:3,fire_aspect:1"
+    lore:
+      - "&7You never see the one who holds it."
+      - ""
+      - "&8Passive &8» &7Backstab: hits from behind deal 2.5x damage"
+      - "&8Right-click &8» &7Shadow Step: blink behind your target,"
+      - "&7  your next strike is a guaranteed backstab"
+      - ""
+      - "&8Relic - Weapon (Dagger)"
+
+  # ------------------------------------------------------------------ UTILITY
+  last_spark:
+    name: "&d&lThe Last Spark"
+    material: NETHER_STAR
+    item-model: ""
+    custom-model-data: 0
+    enchantments: ""
+    lore:
+      - "&7The final ember of something that was never meant to end."
+      - ""
+      - "&dRight-click &8» &7Consume someone nearby and forge one of the"
+      - "&7  other 14 relics (random) and receive it"
+      - "&dSneak + right-click &8» &7Choose which relic it will forge"
+      - ""
+      - "&8Relic - Utility"
+
+  waystone_shard:
+    name: "&3&lWaystone Shard"
+    material: ECHO_SHARD
+    item-model: ""
+    custom-model-data: 0
+    enchantments: ""
+    lore:
+      - "&7A splinter of a road that remembers every traveler."
+      - ""
+      - "&3Sneak + right-click &8» &7Bind a waypoint to the shard"
+      - "&3Right-click &8» &7Stand still for 3s, then teleport to it"
+      - ""
+      - "&8Relic - Utility"
+
+  tether_hook:
+    name: "&a&lTether Hook"
+    material: FISHING_ROD
+    item-model: ""
+    custom-model-data: 0
+    enchantments: ""
+    lore:
+      - "&7Anything you can hit, you can reach."
+      - ""
+      - "&aCast &8» &7Cast at a block and the line hauls you to it"
+      - "&aCast &8» &7Hook a creature to yank it toward you"
+      - "&7  (no fall damage after a swing)"
+      - ""
+      - "&8Relic - Utility"
+
+  lifebloom_charm:
+    name: "&d&lLifebloom Charm"
+    material: HEART_OF_THE_SEA
+    item-model: ""
+    custom-model-data: 0
+    enchantments: ""
+    lore:
+      - "&7A heartbeat that is not yours, and yet keeps you alive."
+      - ""
+      - "&dRight-click &8» &7Heal and cleanse yourself and nearby"
+      - "&7  players, plus Regeneration (90s cooldown)"
+      - ""
+      - "&8Relic - Utility"
+
+  quarry_pickaxe:
+    name: "&6&lQuarry Pickaxe"
+    material: NETHERITE_PICKAXE
+    item-model: ""
+    custom-model-data: 0
+    enchantments: "efficiency:7,fortune:4"
+    lore:
+      - "&7The mountain never stood a chance."
+      - ""
+      - "&6Passive &8» &7Haste II while held"
+      - "&6Passive &8» &7Mines a 3x3 area (sneak to mine one block)"
+      - ""
+      - "&8Relic - Utility"
